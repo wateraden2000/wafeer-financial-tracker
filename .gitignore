@@ -1,0 +1,30 @@
+# Flutter/Dart build outputs
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Android local files
+android/local.properties
+android/.gradle/
+android/key.properties
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
+
+# IntelliJ/Android Studio
+*.iml
+
+# Pub cache
+.pub-cache/
+.pub/
+
+# Generated files
+coverage/
+doc/api/
