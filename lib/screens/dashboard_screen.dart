@@ -974,6 +974,7 @@ class DashboardScreen extends StatelessWidget {
                                 id: DateTime.now().millisecondsSinceEpoch.toString(),
                                 title: title,
                                 amount: amount,
+                                  currency: 'SAR',
                                 category: selectedCategory,
                                 type: selectedType,
                                 date: DateTime.now(),
