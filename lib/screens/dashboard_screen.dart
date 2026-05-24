@@ -172,7 +172,7 @@ class DashboardScreen extends StatelessWidget {
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 32,
-                            fontWeight: FontWeight.black,
+                          fontWeight: FontWeight.w900,
                           ),
                         ),
                         const SizedBox(height: 24),
@@ -615,7 +615,7 @@ class DashboardScreen extends StatelessWidget {
                                           style: TextStyle(
                                             fontSize: 11,
                                             color: AppTheme.textSecondaryDark.withOpacity(0.8),
-                                            style: FontStyle.italic,
+                                           fontStyle: FontStyle.italic,
                                           ),
                                         ),
                                       ]
@@ -628,7 +628,7 @@ class DashboardScreen extends StatelessWidget {
                                         '${isIncome ? '+' : '-'}${currencyFormat.format(tx.amount).replaceAll('ر.س', '')}',
                                         style: TextStyle(
                                           color: isIncome ? AppTheme.income : AppTheme.expense,
-                                          fontWeight: FontWeight.black,
+                                          fontWeight: FontWeight.w900,
                                           fontSize: 16,
                                         ),
                                       ),
