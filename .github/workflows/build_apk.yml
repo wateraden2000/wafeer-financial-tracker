@@ -16,8 +16,13 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.x'
+      
+      # هذا الأمر سيقوم بإنشاء ملفات الأندرويد المفقودة تلقائياً
+      - run: flutter create .
+      
       - run: flutter pub get
       - run: flutter build apk --release
+      
       - uses: actions/upload-artifact@v3
         with:
           name: release-apk
