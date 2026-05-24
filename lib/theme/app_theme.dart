@@ -42,7 +42,7 @@ class AppTheme {
           letterSpacing: 0.5,
         ),
       ),
-      cardTheme: CardTheme(                          // ✅ CardTheme صح هنا
+     cardTheme: CardThemeData(                          // ✅ CardTheme صح هنا
         color: darkCard,
         elevation: 0,
         shape: RoundedRectangleBorder(
