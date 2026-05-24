@@ -42,7 +42,7 @@ class AppTheme {
           letterSpacing: 0.5,
         ),
       ),
-     cardTheme: CardThemeData(                          // ✅ CardTheme صح هنا
+      cardTheme: CardTheme(
         color: darkCard,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -50,7 +50,7 @@ class AppTheme {
           side: const BorderSide(color: Color(0x1AFFFFFF), width: 1),
         ),
       ),
-      dialogTheme: DialogThemeData(                  // ✅ تغيير DialogTheme → DialogThemeData
+      dialogTheme: DialogThemeData(
         backgroundColor: darkCard,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(28),
