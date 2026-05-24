@@ -22,13 +22,20 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Find and Build
+      - name: Fix and Build
         run: |
-          # البحث عن المسار الذي يحتوي على ملف pubspec.yaml
+          # العثور على المسار الذي يحتوي على pubspec.yaml
           PROJECT_DIR=$(find . -name "pubspec.yaml" -exec dirname {} \; | head -n 1)
           echo "Building project at: $PROJECT_DIR"
           cd "$PROJECT_DIR"
+          
+          # إنشاء هيكل الأندرويد المفقود وإصلاح المشروع
+          flutter create .
+          
+          # استعادة المكتبات
           flutter pub get
+          
+          # البناء
           flutter build apk --release
 
       - name: Upload APK
