@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: flutter_app  # هنا نخبره أن يدخل إلى هذا المجلد أولاً
     steps:
       - uses: actions/checkout@v3
       
@@ -15,22 +18,18 @@ jobs:
           distribution: 'zulu'
           java-version: '12.x'
           
-      - uses: subosito/flutter-action@v2
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.x'
+          channel: 'stable'
 
-      # هذه الخطوة تبحث عن ملفات المشروع في أي مكان وتنشئ ملفات الأندرويد المفقودة
-      - name: Create Android directory and Get Dependencies
-        run: |
-          find . -name "pubspec.yaml" -exec dirname {} \; | xargs -I {} sh -c 'cd {} && flutter create . && flutter pub get'
+      - name: Install dependencies
+        run: flutter pub get
 
-      # هذه الخطوة تقوم بالبناء في المجلد الذي يوجد فيه المشروع
       - name: Build APK
-        run: |
-          find . -name "pubspec.yaml" -exec dirname {} \; | xargs -I {} sh -c 'cd {} && flutter build apk --release'
+        run: flutter build apk --release
 
-      # رفع الملف الناتج
-- uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: flutter_app/build/app/outputs/flutter-apk/app-release.apk # المسار المحدث
